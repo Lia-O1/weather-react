@@ -8,7 +8,8 @@ function App() {
       <Search />
       <p>
         {" "}
-        <a href="/">Open-sourced</a> by Olha Stepko
+        <a href="https://github.com/Lia-O1/weather-react">Open-sourced</a> by
+        Olha Stepko
       </p>
     </div>
   );
