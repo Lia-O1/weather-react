@@ -1,17 +1,21 @@
 import "./App.css";
+import Weather from "./Weather";
 
 function App() {
   return (
     <div className="App">
-      <h1>Weather App</h1>
+      <div className="container">
+        <h1>Wt</h1>
+        <Weather defaultCity="London" />
 
-      <p>
-        {" "}
-        <a href="https://github.com/Lia-O1/weather-react" target="_blank">
-          Open-sourced
-        </a>{" "}
-        by Olha Stepko
-      </p>
+        <p>
+          {" "}
+          <a href="https://github.com/Lia-O1/weather-react" target="_blank">
+            Open-sourced
+          </a>{" "}
+          by Olha Stepko
+        </p>
+      </div>
     </div>
   );
 }
