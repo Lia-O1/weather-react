@@ -10,7 +10,11 @@ function App() {
 
         <p>
           {" "}
-          <a href="https://github.com/Lia-O1/weather-react" target="_blank">
+          <a
+            href="https://github.com/Lia-O1/weather-react"
+            target="_blank"
+            rel="noreferrer"
+          >
             Open-sourced
           </a>{" "}
           by Olha Stepko

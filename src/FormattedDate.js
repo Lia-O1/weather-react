@@ -23,17 +23,18 @@ export default function FormattedDate({ timezone, showTime }) {
   let minutes = cityTime.getMinutes();
   minutes = minutes < 10 ? "0" + minutes : minutes;
   let ampm = hours >= 12 ? "PM" : "AM";
+  let fixedHours;
 
   if (hours <= 12) {
-    hours = hours;
+    fixedHours = hours;
   } else {
-    hours = hours - 12;
+    fixedHours = hours - 12;
   }
 
   if (showTime === true) {
     return (
       <span>
-        {hours}:{minutes} {""}
+        {fixedHours}:{minutes} {""}
         {ampm}
       </span>
     );
