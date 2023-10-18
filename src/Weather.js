@@ -3,16 +3,28 @@ import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather({ defaultCity }) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(defaultCity);
   function getWeatherData(response) {
     console.log(response);
+    let precipitationValue = "0 mm";
+    let rainData = response.data.rain;
+    if (rainData !== undefined) {
+      for (let prop in rainData) {
+        if (rainData[prop] !== undefined) {
+          precipitationValue = `${rainData[prop]} mm`;
+          break;
+        }
+      }
+    }
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
       temperature: response.data.main.temp,
+      feelsLike: response.data.main.feels_like,
       humidity: response.data.main.humidity,
       timezone: response.data.timezone,
       description: response.data.weather[0].description,
@@ -20,6 +32,7 @@ export default function Weather({ defaultCity }) {
       wind: response.data.wind.speed,
       city: response.data.name,
       country: response.data.sys.country,
+      precipitation: precipitationValue,
     });
   }
 
@@ -74,6 +87,9 @@ export default function Weather({ defaultCity }) {
             </div>
           </div>
         </div>
+        <WeatherInfo weatherData={weatherData}>
+          <FormattedDate timezone={weatherData.timezone} showTime={true} />
+        </WeatherInfo>
       </div>
     );
   } else {

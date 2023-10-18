@@ -33,7 +33,7 @@ export default function FormattedDate({ timezone, showTime }) {
   if (showTime === true) {
     return (
       <span>
-        {hours}:{minutes}
+        {hours}:{minutes} {""}
         {ampm}
       </span>
     );
