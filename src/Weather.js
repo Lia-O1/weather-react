@@ -4,12 +4,12 @@ import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather({ defaultCity }) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(defaultCity);
   function getWeatherData(response) {
-    console.log(response);
     let precipitationValue = "0 mm";
     let rainData = response.data.rain;
     if (rainData !== undefined) {
@@ -60,6 +60,7 @@ export default function Weather({ defaultCity }) {
                 autoFocus="on"
                 onChange={handleCityChange}
               />
+              {/*value={city}? (for the top input)*/}
               <input type="submit" value="Search" />
             </form>
           </div>
@@ -75,7 +76,7 @@ export default function Weather({ defaultCity }) {
               <FormattedDate timezone={weatherData.timezone} showTime={false} />
             </div>
             <div className="col-md-6 text-end">
-              <WeatherIcon code={weatherData.icon} />
+              <WeatherIcon code={weatherData.icon} size={24} />
               <WeatherTemperature
                 celsiusTemperature={weatherData.temperature}
               />
@@ -90,6 +91,7 @@ export default function Weather({ defaultCity }) {
         <WeatherInfo weatherData={weatherData}>
           <FormattedDate timezone={weatherData.timezone} showTime={true} />
         </WeatherInfo>
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {

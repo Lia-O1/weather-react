@@ -31,18 +31,17 @@ export default function FormattedDate({ timezone, showTime }) {
     fixedHours = hours - 12;
   }
 
-  if (showTime === true) {
+  if (showTime) {
     return (
       <span>
         {fixedHours}:{minutes} {""}
         {ampm}
       </span>
     );
-  } else {
-    return (
-      <span>
-        {day}, {todaysDate}
-      </span>
-    );
   }
+  return (
+    <span>
+      {day}, {todaysDate}
+    </span>
+  );
 }

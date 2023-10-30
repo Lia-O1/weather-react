@@ -14,7 +14,7 @@ import {
   WiWindy,
 } from "weather-icons-react";
 
-export default function WeatherIcon({ code }) {
+export default function WeatherIcon({ code, size }) {
   const codeMapping = {
     "01d": WiDaySunny,
     "01n": WiNightClear,
@@ -36,5 +36,5 @@ export default function WeatherIcon({ code }) {
     "50n": WiWindy,
   };
   const IconComponent = codeMapping[code];
-  return <IconComponent size={24} color="#000" />;
+  return <IconComponent size={size} color="#000" />;
 }
