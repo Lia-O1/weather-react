@@ -37,23 +37,33 @@ export default function Weather({ defaultCity }) {
     });
   }
 
-  function searchCity() {
-    let apiKey = "5ef4de8cd6b7fefcd7c42f98cf464ce8";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${apiKey}&units=metric`;
-    axios
-      .get(apiUrl)
-      .then(getWeatherData)
-      .catch((error) => {
-        console.error(error);
-        alert(
-          "There was an error fetching the weather data. Please try again."
+  function processUserInput(input) {
+    let trimmedInput = input.trim();
+    if (trimmedInput.indexOf(" ") !== -1) {
+      let words = trimmedInput.split(" ");
+      let city = words[0];
+      let country = words[1];
+      if (country.length === 2 && isNaN(city)) {
+        return { city, country };
+      } else {
+        throw new Error(
+          "Please enter a valid location and country code (e.g., 'London GB')."
         );
-      });
+      }
+    } else if (!isNaN(trimmedInput)) {
+      throw new Error("Please enter a valid location name.");
+    } else {
+      return { city: trimmedInput };
+    }
   }
 
-  function searchCityCountry(city, country) {
+  function fetchWeatherData({ city, country }) {
     let apiKey = "5ef4de8cd6b7fefcd7c42f98cf464ce8";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}`;
+    if (country) {
+      apiUrl += `,${country}`;
+    }
+    apiUrl += `&appid=${apiKey}&units=metric`;
     axios
       .get(apiUrl)
       .then(getWeatherData)
@@ -66,21 +76,11 @@ export default function Weather({ defaultCity }) {
   }
 
   function search() {
-    if (input.trim().indexOf(" ") !== -1) {
-      let words = input.split(" ");
-      let city = words[0];
-      let country = words[1];
-      if (country.length === 2 && isNaN(city)) {
-        searchCityCountry(city, country);
-      } else {
-        alert(
-          "Please enter a valid location and country code (e.g., 'London GB')."
-        );
-      }
-    } else if (!isNaN(input)) {
-      alert("Please enter a valid location name.");
-    } else {
-      searchCity();
+    try {
+      let userInput = processUserInput(input);
+      fetchWeatherData(userInput);
+    } catch (error) {
+      alert(error.message);
     }
   }
 
@@ -108,7 +108,6 @@ export default function Weather({ defaultCity }) {
           </div>
           <div className="col-4 d-flex flex-row-reverse ">
             {" "}
-            {/*use text-end?*/}
             <button>My Location</button>
           </div>
           <div className="row">
