@@ -1,16 +1,29 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
-export default function WeatherForecastDay({ data }) {
-  console.log(data.uvi);
+export default function WeatherForecastDay({ data, celsius }) {
   function maxTemperature() {
-    let temperature = Math.round(data.temp.max);
-    return `${temperature}°`;
+    let celsiusTemperature = data.temp.max;
+    let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+    console.log(
+      Math.round(celsiusTemperature),
+      Math.round(fahrenheitTemperature)
+    );
+    if (celsius) {
+      return Math.round(celsiusTemperature);
+    } else {
+      return Math.round(fahrenheitTemperature);
+    }
   }
 
   function minTemperature() {
-    let temperature = Math.round(data.temp.min);
-    return `${temperature}°`;
+    let celsiusTemperature = data.temp.min;
+    let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+    if (celsius) {
+      return Math.round(celsiusTemperature);
+    } else {
+      return Math.round(fahrenheitTemperature);
+    }
   }
   function uviIndex() {
     let uvi = Math.round(data.uvi);
@@ -60,10 +73,10 @@ export default function WeatherForecastDay({ data }) {
           </div>
           <div className="WeatherForecast-temperatures">
             <span className="WeatherForecast-temperature-max">
-              {maxTemperature()}
+              {maxTemperature()}° /{" "}
             </span>
             <span className="WeatherForecast-temperature-min">
-              {minTemperature()}
+              {minTemperature()}°
             </span>
           </div>
           <div className="WeatherForecast-uvi">UV: {uviIndex()}</div>

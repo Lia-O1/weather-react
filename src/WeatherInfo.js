@@ -45,7 +45,7 @@ export default function WeatherInfo({ weatherData, children }) {
           Wind
           <WiStrongWind size={24} color="#000" />
           <br />
-          {weatherData.wind} m/s
+          {Math.round(weatherData.wind)} m/s
           <hr className="mb-0" />
         </div>
       </div>

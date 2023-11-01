@@ -1,8 +1,11 @@
-import React, { useState } from "react";
-export default function WeatherTemperature({ celsiusTemperature }) {
-  const [unit, setUnit] = useState("metric");
+import React from "react";
+export default function WeatherTemperature({
+  celsiusTemperature,
+  celsius,
+  setCelsius,
+}) {
   const fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  if (unit === "metric") {
+  if (celsius) {
     return (
       <span>
         {Math.round(celsiusTemperature)} °C |{" "}
@@ -10,7 +13,7 @@ export default function WeatherTemperature({ celsiusTemperature }) {
           href="/"
           onClick={(e) => {
             e.preventDefault();
-            setUnit("imperial");
+            setCelsius(false);
           }}
         >
           F
@@ -25,7 +28,7 @@ export default function WeatherTemperature({ celsiusTemperature }) {
           href="/"
           onClick={(e) => {
             e.preventDefault();
-            setUnit("metric");
+            setCelsius(true);
           }}
         >
           C

@@ -5,12 +5,12 @@ import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
+import LocationButton from "./LocationButton";
 
-export default function Weather({ defaultCity }) {
+export default function Weather({ defaultCity, celsius, setCelsius }) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [input, setInput] = useState(defaultCity);
   function getWeatherData(response) {
-    console.log(response.data);
     let precipitationValue = "0 mm";
     let rainData = response.data.rain;
     if (rainData !== undefined) {
@@ -107,8 +107,7 @@ export default function Weather({ defaultCity }) {
             </form>
           </div>
           <div className="col-4 d-flex flex-row-reverse ">
-            {" "}
-            <button>My Location</button>
+            <LocationButton getWeatherData={getWeatherData} />
           </div>
           <div className="row">
             <div className="col-md-6">
@@ -120,6 +119,8 @@ export default function Weather({ defaultCity }) {
               <WeatherIcon code={weatherData.icon} size={24} />
               <WeatherTemperature
                 celsiusTemperature={weatherData.temperature}
+                celsius={celsius}
+                setCelsius={setCelsius}
               />
               <br />{" "}
               <span>
@@ -132,7 +133,10 @@ export default function Weather({ defaultCity }) {
         <WeatherInfo weatherData={weatherData}>
           <FormattedDate timezone={weatherData.timezone} showTime={true} />
         </WeatherInfo>
-        <WeatherForecast coordinates={weatherData.coordinates} />
+        <WeatherForecast
+          coordinates={weatherData.coordinates}
+          celsius={celsius}
+        />
       </div>
     );
   } else {

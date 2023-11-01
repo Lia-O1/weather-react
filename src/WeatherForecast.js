@@ -3,7 +3,7 @@ import axios from "axios";
 import WeatherForecastDay from "./WeatherForecastDay";
 import { useEffect } from "react";
 
-export default function WeatherForecast({ coordinates }) {
+export default function WeatherForecast({ coordinates, celsius }) {
   const [loaded, setLoaded] = useState(false);
   const [forecastData, setForecastData] = useState(null);
 
@@ -12,7 +12,6 @@ export default function WeatherForecast({ coordinates }) {
   }, [coordinates]);
 
   function handleResponse(response) {
-    console.log(response.data);
     setLoaded(true);
     setForecastData(response.data.daily);
   }
@@ -31,9 +30,11 @@ export default function WeatherForecast({ coordinates }) {
             if (index > 0 && index < 7) {
               return (
                 <div className="col-lg-2" key={index}>
-                  <WeatherForecastDay data={dailyForecast} />
+                  <WeatherForecastDay data={dailyForecast} celsius={celsius} />
                 </div>
               );
+            } else {
+              return null;
             }
           })}
         </div>
