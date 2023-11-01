@@ -8,8 +8,9 @@ import WeatherForecast from "./WeatherForecast";
 
 export default function Weather({ defaultCity }) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [city, setCity] = useState(defaultCity);
+  const [input, setInput] = useState(defaultCity);
   function getWeatherData(response) {
+    console.log(response.data);
     let precipitationValue = "0 mm";
     let rainData = response.data.rain;
     if (rainData !== undefined) {
@@ -36,17 +37,59 @@ export default function Weather({ defaultCity }) {
     });
   }
 
-  function search() {
+  function searchCity() {
     let apiKey = "5ef4de8cd6b7fefcd7c42f98cf464ce8";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(getWeatherData);
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${apiKey}&units=metric`;
+    axios
+      .get(apiUrl)
+      .then(getWeatherData)
+      .catch((error) => {
+        console.error(error);
+        alert(
+          "There was an error fetching the weather data. Please try again."
+        );
+      });
   }
+
+  function searchCityCountry(city, country) {
+    let apiKey = "5ef4de8cd6b7fefcd7c42f98cf464ce8";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric`;
+    axios
+      .get(apiUrl)
+      .then(getWeatherData)
+      .catch((error) => {
+        console.error(error);
+        alert(
+          "There was an error fetching the weather data. Please try again."
+        );
+      });
+  }
+
+  function search() {
+    if (input.trim().indexOf(" ") !== -1) {
+      let words = input.split(" ");
+      let city = words[0];
+      let country = words[1];
+      if (country.length === 2 && isNaN(city)) {
+        searchCityCountry(city, country);
+      } else {
+        alert(
+          "Please enter a valid location and country code (e.g., 'London GB')."
+        );
+      }
+    } else if (!isNaN(input)) {
+      alert("Please enter a valid location name.");
+    } else {
+      searchCity();
+    }
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     search();
   }
-  function handleCityChange(e) {
-    setCity(e.target.value);
+  function handleInputChange(e) {
+    setInput(e.target.value);
   }
   if (weatherData.ready) {
     return (
@@ -58,9 +101,8 @@ export default function Weather({ defaultCity }) {
                 type="search"
                 placeholder="Start typing..."
                 autoFocus="on"
-                onChange={handleCityChange}
+                onChange={handleInputChange}
               />
-              {/*value={city}? (for the top input)*/}
               <input type="submit" value="Search" />
             </form>
           </div>
