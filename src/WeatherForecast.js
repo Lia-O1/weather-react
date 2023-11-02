@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import WeatherForecastDay from "./WeatherForecastDay";
 import { useEffect } from "react";
+import "./WeatherForecast.css";
 
 export default function WeatherForecast({ coordinates, celsius }) {
   const [loaded, setLoaded] = useState(false);

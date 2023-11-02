@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./Weather.css";
 
 export default function LocationButton({ getWeatherData }) {
   function fetchData(position) {
@@ -12,5 +13,9 @@ export default function LocationButton({ getWeatherData }) {
   function getPosition() {
     navigator.geolocation.getCurrentPosition(fetchData);
   }
-  return <button onClick={getPosition}>My Location</button>;
+  return (
+    <button onClick={getPosition} className="button">
+      My Location
+    </button>
+  );
 }

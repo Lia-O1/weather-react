@@ -1,4 +1,5 @@
 import React from "react";
+import "./Weather.css";
 import {
   WiDaySunny,
   WiNightClear,
@@ -36,5 +37,9 @@ export default function WeatherIcon({ code, size }) {
     "50n": WiWindy,
   };
   const IconComponent = codeMapping[code];
-  return <IconComponent size={size} color="#000" />;
+  return (
+    <span className="WeatherIcon-icon">
+      <IconComponent size={size} color="fff" />
+    </span>
+  );
 }

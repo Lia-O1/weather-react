@@ -7,14 +7,14 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>Wt</h1>
+        <h1 className="text-center">Wt</h1>
         <Weather
           defaultCity="London"
           celsius={celsius}
           setCelsius={setCelsius}
         />
 
-        <p>
+        <span className="github-link">
           {" "}
           <a
             href="https://github.com/Lia-O1/weather-react"
@@ -24,7 +24,7 @@ function App() {
             Open-sourced
           </a>{" "}
           by Olha Stepko
-        </p>
+        </span>
       </div>
     </div>
   );

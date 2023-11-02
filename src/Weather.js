@@ -6,6 +6,8 @@ import WeatherTemperature from "./WeatherTemperature";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import LocationButton from "./LocationButton";
+import CircleLoader from "react-spinners/ClipLoader";
+import "./Weather.css";
 
 export default function Weather({ defaultCity, celsius, setCelsius }) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -102,37 +104,42 @@ export default function Weather({ defaultCity, celsius, setCelsius }) {
                 placeholder="Start typing..."
                 autoFocus="on"
                 onChange={handleInputChange}
+                className="search-input"
               />
-              <input type="submit" value="Search" />
+              <input type="submit" value="Search" className="button" />
             </form>
           </div>
+
           <div className="col-4 d-flex flex-row-reverse ">
             <LocationButton getWeatherData={getWeatherData} />
           </div>
-          <div className="row">
-            <div className="col-md-6">
+        </div>
+        <div className="row">
+          <div className="col-md-6 mt-4 mb-4">
+            <span className="location-name">
               {weatherData.city}, {weatherData.country}
-              <br />{" "}
-              <FormattedDate timezone={weatherData.timezone} showTime={false} />
-            </div>
-            <div className="col-md-6 text-end">
-              <WeatherIcon code={weatherData.icon} size={24} />
-              <WeatherTemperature
-                celsiusTemperature={weatherData.temperature}
-                celsius={celsius}
-                setCelsius={setCelsius}
-              />
-              <br />{" "}
-              <span>
-                {weatherData.description[0].toUpperCase() +
-                  weatherData.description.slice(1)}
-              </span>
-            </div>
+            </span>
+            <br />{" "}
+            <FormattedDate timezone={weatherData.timezone} showTime={false} />
+          </div>
+          <div className="col-md-6 mt-4 mb-4 text-end">
+            <WeatherIcon code={weatherData.icon} size={54} />
+            <WeatherTemperature
+              celsiusTemperature={weatherData.temperature}
+              celsius={celsius}
+              setCelsius={setCelsius}
+            />
+            <br />{" "}
+            <span className="description">
+              {weatherData.description[0].toUpperCase() +
+                weatherData.description.slice(1)}
+            </span>
           </div>
         </div>
         <WeatherInfo weatherData={weatherData}>
           <FormattedDate timezone={weatherData.timezone} showTime={true} />
         </WeatherInfo>
+        <div className="forecast-title">Daily Forecast</div>
         <WeatherForecast
           coordinates={weatherData.coordinates}
           celsius={celsius}
@@ -141,6 +148,14 @@ export default function Weather({ defaultCity, celsius, setCelsius }) {
     );
   } else {
     search();
-    return "Loading...";
+    return (
+      <CircleLoader
+        color="#fff"
+        loading="true"
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+    );
   }
 }

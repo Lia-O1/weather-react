@@ -1,0 +1,34 @@
+.App {
+  background-image: url(../public/lightsky.jpg);
+  background-size: cover;
+  background-position: center;
+  font-family: "Inconsolata", monospace;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.App h1 {
+  font-family: "WindSong", cursive;
+  font-size: 36px;
+  color: #fff;
+  padding: 10px;
+  line-height: 2;
+}
+
+.App .github-link {
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+  text-shadow: #7f909a 1px 0 10px;
+  font-weight: 600;
+}
+.App a {
+  color: #7f909a;
+  text-decoration: none;
+}
+.App hr {
+  border: 1.5px #fff solid;
+}

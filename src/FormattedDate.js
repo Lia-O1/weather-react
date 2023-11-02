@@ -1,4 +1,5 @@
 import React from "react";
+import "./Weather.css";
 
 export default function FormattedDate({ timezone, showTime }) {
   let date = new Date();
@@ -33,14 +34,14 @@ export default function FormattedDate({ timezone, showTime }) {
 
   if (showTime) {
     return (
-      <span>
+      <span className="FormattedDate-">
         {fixedHours}:{minutes} {""}
         {ampm}
       </span>
     );
   }
   return (
-    <span>
+    <span className="FormattedDate-date">
       {day}, {todaysDate}
     </span>
   );

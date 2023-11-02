@@ -1,5 +1,6 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
+import "./WeatherForecast.css";
 
 export default function WeatherForecastDay({ data, celsius }) {
   function maxTemperature() {
@@ -62,24 +63,25 @@ export default function WeatherForecastDay({ data, celsius }) {
   }
   return (
     <div className="card h-100">
-      <div className="card-body">
+      <div className="card-body WeatherForecastDay-day">
         <h5 className="card-title">{day()}</h5>
         <hr />
         <div className="card-text">
           <WeatherIcon code={data.weather[0].icon} size={36} />
-          <div className="WeatherForecast-description">
+
+          <div className="WeatherForecastDay-description">
             {data.weather[0].description[0].toUpperCase() +
               data.weather[0].description.slice(1)}
           </div>
-          <div className="WeatherForecast-temperatures">
-            <span className="WeatherForecast-temperature-max">
+          <div className="WeatherForecastDay-temperatures">
+            <span className="WeatherForecastDay-temperature-max">
               {maxTemperature()}° /{" "}
             </span>
-            <span className="WeatherForecast-temperature-min">
+            <span className="WeatherForecastDay-temperature-min">
               {minTemperature()}°
             </span>
           </div>
-          <div className="WeatherForecast-uvi">UV: {uviIndex()}</div>
+          <div className="WeatherForecastDay-uvi">UV: {uviIndex()}</div>
         </div>
       </div>
     </div>

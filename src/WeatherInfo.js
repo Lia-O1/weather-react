@@ -5,12 +5,13 @@ import {
   WiRaindrop,
   WiStrongWind,
 } from "weather-icons-react";
+import "./Weather.css";
 
 export default function WeatherInfo({ weatherData, children }) {
   return (
     <div className="WeatherInfo">
-      <div className="row text-center">
-        <div className="col-12">
+      <div className="row mx-auto text-center">
+        <div className="col-12 mx-auto text-center">
           <hr className="mt-0" />
           <span>Updated at: {children} </span>
           <hr className="mb-0" />
@@ -21,7 +22,7 @@ export default function WeatherInfo({ weatherData, children }) {
           {" "}
           <span>
             Feels like
-            <WiThermometer size={24} color="#000" />
+            <WiThermometer size={24} color="#fff" />
             <br />
             {Math.round(weatherData.feelsLike)}°C
           </span>
@@ -29,21 +30,23 @@ export default function WeatherInfo({ weatherData, children }) {
         </div>
         <div className="col-lg-3 pt-3">
           Precipitation
-          <WiUmbrella size={24} color="#000" />
+          <span className="position-relative bottom-2">
+            <WiUmbrella size={24} color="#fff" />
+          </span>
           <br />
           {weatherData.precipitation}
           <hr className="mb-0" />
         </div>
         <div className="col-lg-3 pt-3">
           Humidity
-          <WiRaindrop size={24} color="#000" />
+          <WiRaindrop size={28} color="#fff" />
           <br />
           {weatherData.humidity}%
           <hr className="mb-0" />
         </div>
         <div className="col-lg-3 pt-3">
           Wind
-          <WiStrongWind size={24} color="#000" />
+          <WiStrongWind size={24} color="#fff" />
           <br />
           {Math.round(weatherData.wind)} m/s
           <hr className="mb-0" />

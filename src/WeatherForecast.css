@@ -1,0 +1,20 @@
+:root {
+  --box-shadow: rgb(127, 144, 154, 0.8) 1px 0 7px;
+  --text-shadow: #7f909a 1px 0 10px;
+  --primary-color: #8cb7cb;
+}
+.card-body.WeatherForecastDay-day {
+  background: var(--primary-color);
+  color: #fff;
+  border: 1px solid var(--primary-color);
+  border-radius: 16px;
+
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 15px;
+}
+
+.card {
+  background-color: transparent !important;
+  border: none !important;
+}

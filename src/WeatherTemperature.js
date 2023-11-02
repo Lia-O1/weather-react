@@ -1,4 +1,6 @@
 import React from "react";
+import "./Weather.css";
+
 export default function WeatherTemperature({
   celsiusTemperature,
   celsius,
@@ -7,32 +9,40 @@ export default function WeatherTemperature({
   const fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   if (celsius) {
     return (
-      <span>
-        {Math.round(celsiusTemperature)} °C |{" "}
-        <a
-          href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            setCelsius(false);
-          }}
-        >
-          F
-        </a>
+      <span className="WeatherTemperature-temperature">
+        {Math.round(celsiusTemperature)}
+        <span className="WeatherTemperature-units">
+          °C |
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              setCelsius(false);
+            }}
+          >
+            {" "}
+            F
+          </a>
+        </span>
       </span>
     );
   } else {
     return (
-      <span>
-        {Math.round(fahrenheitTemperature)} °F |{" "}
-        <a
-          href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            setCelsius(true);
-          }}
-        >
-          C
-        </a>{" "}
+      <span className="WeatherTemperature-temperature">
+        {Math.round(fahrenheitTemperature)}
+        <span className="WeatherTemperature-units">
+          °F |
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              setCelsius(true);
+            }}
+          >
+            {" "}
+            C
+          </a>
+        </span>
       </span>
     );
   }
