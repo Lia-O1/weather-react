@@ -116,21 +116,23 @@ export default function Weather({ defaultCity, celsius, setCelsius }) {
         </div>
         <div className="row">
           <div className="col-md-6 mt-4 mb-4">
-            <span className="location-name">
+            <span className="location-name ps-4">
               {weatherData.city}, {weatherData.country}
             </span>
             <br />{" "}
             <FormattedDate timezone={weatherData.timezone} showTime={false} />
           </div>
           <div className="col-md-6 mt-4 mb-4 text-end">
-            <WeatherIcon code={weatherData.icon} size={54} />
+            <span className="main-icon">
+              <WeatherIcon code={weatherData.icon} size={48} />
+            </span>
             <WeatherTemperature
               celsiusTemperature={weatherData.temperature}
               celsius={celsius}
               setCelsius={setCelsius}
             />
             <br />{" "}
-            <span className="description">
+            <span className="description pe-4">
               {weatherData.description[0].toUpperCase() +
                 weatherData.description.slice(1)}
             </span>
@@ -139,13 +141,13 @@ export default function Weather({ defaultCity, celsius, setCelsius }) {
         <WeatherInfo weatherData={weatherData}>
           <FormattedDate timezone={weatherData.timezone} showTime={true} />
         </WeatherInfo>
-        <div className="forecast-title">Daily Forecast</div>
+        <div className="forecast-title my-4 ps-4">Daily Forecast</div>
         <WeatherForecast
           coordinates={weatherData.coordinates}
           celsius={celsius}
         />
-
-        <span className="github-link ps-4 ms-1">
+        <br />
+        <div className="github-link d-none d-sm-block ps-4 pb-5">
           {" "}
           <a
             href="https://github.com/Lia-O1/weather-react"
@@ -155,7 +157,7 @@ export default function Weather({ defaultCity, celsius, setCelsius }) {
             Open-sourced
           </a>{" "}
           by Olha Stepko
-        </span>
+        </div>
       </div>
     );
   } else {

@@ -34,14 +34,14 @@ export default function FormattedDate({ timezone, showTime }) {
 
   if (showTime) {
     return (
-      <span className="FormattedDate-">
+      <span>
         {fixedHours}:{minutes} {""}
         {ampm}
       </span>
     );
   }
   return (
-    <span className="FormattedDate-date">
+    <span className="FormattedDate-date ps-4">
       {day}, {todaysDate}
     </span>
   );

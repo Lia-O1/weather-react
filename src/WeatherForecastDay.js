@@ -67,7 +67,7 @@ export default function WeatherForecastDay({ data, celsius }) {
         <h5 className="card-title">{day()}</h5>
         <hr />
         <div className="card-text">
-          <div className="WeatherForecastDay-icon pt-2 ps-4">
+          <div className="WeatherForecastDay-icon">
             <WeatherIcon code={data.weather[0].icon} size={36} />
           </div>
           <div>

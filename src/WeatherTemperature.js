@@ -9,7 +9,7 @@ export default function WeatherTemperature({
   const fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   if (celsius) {
     return (
-      <span className="WeatherTemperature-temperature">
+      <span className="WeatherTemperature-temperature pe-4">
         {Math.round(celsiusTemperature)}
         <span className="WeatherTemperature-units">
           °C |
@@ -28,7 +28,7 @@ export default function WeatherTemperature({
     );
   } else {
     return (
-      <span className="WeatherTemperature-temperature">
+      <span className="WeatherTemperature-temperature pe-4">
         {Math.round(fahrenheitTemperature)}
         <span className="WeatherTemperature-units">
           °F |

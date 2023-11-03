@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1 className="text-center">Wt</h1>
+        <h1 className="text-center py-3 ">Wt</h1>
         <Weather
           defaultCity="London"
           celsius={celsius}

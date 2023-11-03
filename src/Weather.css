@@ -6,7 +6,7 @@
 .Weather .search-input {
   line-height: 2;
   border: 1px #7f909a solid;
-  width: 50%;
+  width: 60%;
   box-shadow: var(--box-shadow);
   margin-right: 10px;
 }
@@ -27,7 +27,6 @@
   color: #fff;
   text-shadow: var(--text-shadow);
   font-weight: 600;
-  padding-left: 30px;
 }
 
 .FormattedDate-date {
@@ -36,13 +35,16 @@
   color: #fff;
   text-shadow: var(--text-shadow);
   font-weight: 600;
-  padding-left: 30px;
+}
+
+.Weather .main-icon {
+  position: relative;
+  bottom: 8px;
+  right: 10px;
+  text-shadow: var(--text-shadow);
 }
 
 .WeatherIcon-icon {
-  position: relative;
-  bottom: 10px;
-  right: 10px;
   text-shadow: var(--text-shadow);
 }
 
@@ -52,7 +54,6 @@
   color: #fff;
   text-shadow: var(--text-shadow);
   font-weight: 600;
-  padding-right: 30px;
 }
 
 .WeatherTemperature-units {
@@ -60,6 +61,7 @@
   margin-top: 0;
   padding-top: 0;
   position: relative;
+  left: 2px;
   bottom: 18px;
   color: #fff;
 }
@@ -74,7 +76,7 @@
 }
 
 .WeatherInfo {
-  font-size: 24px;
+  font-size: 1.25em;
   line-height: 1.5;
   background: var(--primary-color);
   border: 1px solid var(--primary-color);
@@ -92,7 +94,6 @@
   font-size: 24px;
   line-height: 1.5;
   color: #fff;
-  padding: 20px 0 20px 30px;
   text-shadow: var(--text-shadow);
   font-weight: 600;
 }
@@ -107,4 +108,19 @@
 .Weather a {
   color: #7f909a;
   text-decoration: none;
+}
+
+@media (max-width: 576px) {
+  .Weather .location-name,
+  .WeatherTemperature-temperature {
+    font-size: 36px;
+  }
+  .FormattedDate-date,
+  .Weather .description {
+    font-size: 1.25em;
+  }
+  .WeatherTemperature-units {
+    font-size: 18px;
+    bottom: 12px;
+  }
 }

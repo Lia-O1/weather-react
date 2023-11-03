@@ -9,7 +9,7 @@ import "./Weather.css";
 
 export default function WeatherInfo({ weatherData, children }) {
   return (
-    <div className="WeatherInfo">
+    <div className="WeatherInfo mt-2">
       <div className="row mx-auto text-center">
         <div className="col-12 mx-auto text-center">
           <hr className="mt-0" />
