@@ -144,7 +144,8 @@ export default function Weather({ defaultCity, celsius, setCelsius }) {
           coordinates={weatherData.coordinates}
           celsius={celsius}
         />
-        <span className="github-link mt-3 ps-4 ms-1">
+
+        <span className="github-link ps-4 ms-1">
           {" "}
           <a
             href="https://github.com/Lia-O1/weather-react"

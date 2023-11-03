@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import "./Weather.css";
 
 export default function LocationButton({ getWeatherData }) {
@@ -15,7 +16,10 @@ export default function LocationButton({ getWeatherData }) {
   }
   return (
     <button onClick={getPosition} className="button">
-      My Location
+      <span className="d-none d-sm-inline">My Location</span>{" "}
+      <span className="d-sm-none">
+        <FaMapMarkerAlt color="white" size="1.2em" />
+      </span>
     </button>
   );
 }
