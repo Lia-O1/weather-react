@@ -144,18 +144,31 @@ export default function Weather({ defaultCity, celsius, setCelsius }) {
           coordinates={weatherData.coordinates}
           celsius={celsius}
         />
+        <span className="github-link mt-3 ps-4 ms-1">
+          {" "}
+          <a
+            href="https://github.com/Lia-O1/weather-react"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open-sourced
+          </a>{" "}
+          by Olha Stepko
+        </span>
       </div>
     );
   } else {
     search();
     return (
-      <CircleLoader
-        color="#fff"
-        loading="true"
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
+      <div className="d-flex justify-content-center">
+        <CircleLoader
+          color="#fff"
+          loading="true"
+          size={150}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
     );
   }
 }

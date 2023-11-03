@@ -13,18 +13,6 @@ function App() {
           celsius={celsius}
           setCelsius={setCelsius}
         />
-
-        <span className="github-link">
-          {" "}
-          <a
-            href="https://github.com/Lia-O1/weather-react"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open-sourced
-          </a>{" "}
-          by Olha Stepko
-        </span>
       </div>
     </div>
   );

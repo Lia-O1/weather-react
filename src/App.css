@@ -18,17 +18,6 @@
   line-height: 2;
 }
 
-.App .github-link {
-  color: #fff;
-  font-size: 12px;
-  line-height: 1.5;
-  text-shadow: #7f909a 1px 0 10px;
-  font-weight: 600;
-}
-.App a {
-  color: #7f909a;
-  text-decoration: none;
-}
 .App hr {
   border: 1.5px #fff solid;
 }

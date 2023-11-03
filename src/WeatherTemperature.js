@@ -21,7 +21,7 @@ export default function WeatherTemperature({
             }}
           >
             {" "}
-            F
+            °F
           </a>
         </span>
       </span>
@@ -40,7 +40,7 @@ export default function WeatherTemperature({
             }}
           >
             {" "}
-            C
+            °C
           </a>
         </span>
       </span>

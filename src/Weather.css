@@ -96,3 +96,15 @@
   text-shadow: var(--text-shadow);
   font-weight: 600;
 }
+
+.Weather .github-link {
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+  text-shadow: #7f909a 1px 0 10px;
+  font-weight: 600;
+}
+.Weather a {
+  color: #7f909a;
+  text-decoration: none;
+}

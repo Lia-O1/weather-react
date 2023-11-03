@@ -67,21 +67,17 @@ export default function WeatherForecastDay({ data, celsius }) {
         <h5 className="card-title">{day()}</h5>
         <hr />
         <div className="card-text">
-          <WeatherIcon code={data.weather[0].icon} size={36} />
-
-          <div className="WeatherForecastDay-description">
+          <div className="WeatherForecastDay-icon pt-2 ps-4">
+            <WeatherIcon code={data.weather[0].icon} size={36} />
+          </div>
+          <div>
             {data.weather[0].description[0].toUpperCase() +
               data.weather[0].description.slice(1)}
           </div>
           <div className="WeatherForecastDay-temperatures">
-            <span className="WeatherForecastDay-temperature-max">
-              {maxTemperature()}° /{" "}
-            </span>
-            <span className="WeatherForecastDay-temperature-min">
-              {minTemperature()}°
-            </span>
+            {maxTemperature()}° / {minTemperature()}°
           </div>
-          <div className="WeatherForecastDay-uvi">UV: {uviIndex()}</div>
+          <div>UV: {uviIndex()}</div>
         </div>
       </div>
     </div>
