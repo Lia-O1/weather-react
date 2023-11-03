@@ -153,6 +153,7 @@ export default function Weather({ defaultCity, celsius, setCelsius }) {
             href="https://github.com/Lia-O1/weather-react"
             target="_blank"
             rel="noreferrer"
+            title="Link to the GitHub repository"
           >
             Open-sourced
           </a>{" "}

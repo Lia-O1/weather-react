@@ -14,6 +14,7 @@ export default function WeatherTemperature({
         <span className="WeatherTemperature-units">
           °C |
           <a
+            title="Show the temperature in Fahrenheit"
             href="/"
             onClick={(e) => {
               e.preventDefault();
@@ -33,6 +34,7 @@ export default function WeatherTemperature({
         <span className="WeatherTemperature-units">
           °F |
           <a
+            title="Show the temperature in Celsius"
             href="/"
             onClick={(e) => {
               e.preventDefault();

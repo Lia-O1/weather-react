@@ -6,10 +6,6 @@ export default function WeatherForecastDay({ data, celsius }) {
   function maxTemperature() {
     let celsiusTemperature = data.temp.max;
     let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-    console.log(
-      Math.round(celsiusTemperature),
-      Math.round(fahrenheitTemperature)
-    );
     if (celsius) {
       return Math.round(celsiusTemperature);
     } else {
