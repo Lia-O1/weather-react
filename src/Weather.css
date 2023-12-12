@@ -72,7 +72,6 @@
   color: #fff;
   text-shadow: var(--text-shadow);
   font-weight: 600;
-  padding-right: 30px;
 }
 
 .WeatherInfo {
@@ -110,6 +109,10 @@
   text-decoration: none;
 }
 
+.Weather .text-end-to-change {
+  text-align: end;
+}
+
 @media (max-width: 576px) {
   .Weather .location-name,
   .WeatherTemperature-temperature {
@@ -122,5 +125,15 @@
   .WeatherTemperature-units {
     font-size: 18px;
     bottom: 12px;
+  }
+
+  .Weather .forecast-title {
+    text-align: center;
+    padding-left: 0 !important;
+  }
+
+  .Weather .main-data-row,
+  .text-end-to-change {
+    text-align: center;
   }
 }

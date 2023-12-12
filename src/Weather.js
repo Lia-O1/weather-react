@@ -110,19 +110,19 @@ export default function Weather({ defaultCity, celsius, setCelsius }) {
             </form>
           </div>
 
-          <div className="col-4 d-flex flex-row-reverse ">
+          <div className="col-4 d-flex flex-row-reverse">
             <LocationButton getWeatherData={getWeatherData} />
           </div>
         </div>
-        <div className="row">
+        <div className="row px-4 py-2 main-data-row">
           <div className="col-md-6 mt-4 mb-4">
-            <span className="location-name ps-4">
+            <span className="location-name">
               {weatherData.city}, {weatherData.country}
             </span>
             <br />{" "}
             <FormattedDate timezone={weatherData.timezone} showTime={false} />
           </div>
-          <div className="col-md-6 mt-4 mb-4 text-end">
+          <div className="col-md-6 mt-4 mb-4 text-end-to-change">
             <span className="main-icon">
               <WeatherIcon code={weatherData.icon} size={48} />
             </span>
@@ -132,7 +132,7 @@ export default function Weather({ defaultCity, celsius, setCelsius }) {
               setCelsius={setCelsius}
             />
             <br />{" "}
-            <span className="description pe-4">
+            <span className="description">
               {weatherData.description[0].toUpperCase() +
                 weatherData.description.slice(1)}
             </span>

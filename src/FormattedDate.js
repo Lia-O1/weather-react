@@ -56,7 +56,7 @@ export default function FormattedDate({ timezone, showTime }) {
     );
   }
   return (
-    <span className="FormattedDate-date ps-4">
+    <span className="FormattedDate-date">
       {day}, {month} {todaysDate}
     </span>
   );
