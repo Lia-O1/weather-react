@@ -18,7 +18,22 @@ export default function FormattedDate({ timezone, showTime }) {
     "Friday",
     "Saturday",
   ];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   let todaysDate = cityTime.getDate();
+  let month = months[cityTime.getMonth()];
   let day = days[cityTime.getDay()];
   let hours = cityTime.getHours();
   let minutes = cityTime.getMinutes();
@@ -42,7 +57,7 @@ export default function FormattedDate({ timezone, showTime }) {
   }
   return (
     <span className="FormattedDate-date ps-4">
-      {day}, {todaysDate}
+      {day}, {month} {todaysDate}
     </span>
   );
 }
