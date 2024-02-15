@@ -97,7 +97,7 @@ export default function Weather({ defaultCity, celsius, setCelsius }) {
     return (
       <div className="Weather">
         <div className="row">
-          <div className="col-8">
+          <div className="col-9">
             <form onSubmit={handleSubmit}>
               <input
                 type="search"
@@ -110,7 +110,7 @@ export default function Weather({ defaultCity, celsius, setCelsius }) {
             </form>
           </div>
 
-          <div className="col-4 d-flex flex-row-reverse">
+          <div className="col-3 d-flex flex-row-reverse">
             <LocationButton getWeatherData={getWeatherData} />
           </div>
         </div>

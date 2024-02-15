@@ -134,6 +134,6 @@
 
   .Weather .main-data-row,
   .text-end-to-change {
-    text-align: center;
+    text-align: center !important;
   }
 }
